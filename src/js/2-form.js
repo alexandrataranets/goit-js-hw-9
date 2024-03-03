@@ -24,17 +24,21 @@ window.addEventListener('load', loadForm);
 form.addEventListener('submit', e => {
   e.preventDefault();
   localStorage.removeItem('feedback-form-state');
-  if (form.elements.email.value === '') {
+
+  const emailValue = form.elements.email.value.trim();
+  const messageValue = form.elements.message.value.trim();
+
+  if (!emailValue) {
     alert('Please enter your email');
-  }
-  if (form.elements.message.value === '') {
-    alert('Please enter your message');
+    return;
   }
 
-  console.log({
-    email: form.elements.email.value.trim(),
-    message: form.elements.message.value.trim(),
-  });
+  if (!messageValue) {
+    alert('Please enter your message');
+    return;
+  }
+
+  console.log({ email: emailValue, message: messageValue });
 
   form.reset();
 });
