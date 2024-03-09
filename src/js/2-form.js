@@ -20,9 +20,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('input', saveForm);
 
-  // Використання DOMContentLoaded
-  document.addEventListener('DOMContentLoaded', loadForm);
-
   form.addEventListener('submit', e => {
     e.preventDefault();
 
@@ -46,4 +43,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     form.reset();
   });
+
+
+loadForm();
 });
